@@ -18,6 +18,7 @@
 \def\orgmail{info@default.org}
 \def\orgwebsite{default.org}
 \def\orgsiret{1234567}
+\def\orglogobase{logoorg}
 
 \input{defaultorg-colours.def}
 %End of Package

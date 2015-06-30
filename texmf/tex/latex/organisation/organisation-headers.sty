@@ -4,7 +4,6 @@
 % SIRET number - enabled by siret option
 \newcommand{\fsiret}{}
 \DeclareOption{siret}{
-    % TODO: Change SIRET
     \renewcommand{\fsiret}{ - SIRET \orgsiret{}}
 }
 
@@ -47,7 +46,9 @@
 \def\fmail{\expandafter\url\expandafter{\orgmail}}
 \def\fwebsite{\expandafter\url\expandafter{\orgwebsite}}
 \def\fphone{\orgphone}
+\def\flogo{\orglogobase}
 
+%% Override of default values
 \newcommand{\footeraddress}[1]{\def\faddress{#1}}
 \newcommand{\footername}[1]{\def\fname{#1}}
 \newcommand{\footermail}[1]{\def\fmail{#1}}
@@ -102,7 +103,7 @@
     \chead{}
     \rhead{}
 \else
-    \lhead{\includegraphics[width=.3\textwidth]{logo\editionyear.pdf}}
+    \lhead{\includegraphics[width=.3\textwidth]{\flogo\editionyear.pdf}}
     \chead{}
     \rhead{Version du \today\\\textbf{\@title}} 
 \fi
@@ -115,7 +116,7 @@
 \else
     \fancyhf{}
     \fancyhead[L]{
-        \includegraphics[width=.3\textwidth]{logo\editionyear.pdf}
+        \includegraphics[width=.3\textwidth]{\flogo\editionyear.pdf}
     }
     \fancyhead[R]{\today}
 \fi
