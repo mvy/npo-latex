@@ -27,7 +27,7 @@
 }
 
 % Landscape
-\def\@headheight{37pt}
+\def\@headheight{90pt}
 \def\@headsep{25pt}
 \DeclareOption{landscape}{
     \def\@headheight{50pt}
@@ -47,6 +47,7 @@
 \def\fwebsite{\expandafter\url\expandafter{\orgwebsite}}
 \def\fphone{\orgphone}
 \def\flogo{\orglogobase}
+\def\flogoheight{\orglogoheight}
 
 %% Override of default values
 \newcommand{\footeraddress}[1]{\def\faddress{#1}}
@@ -103,7 +104,7 @@
     \chead{}
     \rhead{}
 \else
-    \lhead{\includegraphics[width=.3\textwidth]{\flogo\editionyear.pdf}}
+    \lhead{\includegraphics[height=\flogoheight]{\flogo\editionyear.pdf}}
     \chead{}
     \rhead{Version du \today\\\textbf{\@title}} 
 \fi
@@ -116,7 +117,7 @@
 \else
     \fancyhf{}
     \fancyhead[L]{
-        \includegraphics[width=.3\textwidth]{\flogo\editionyear.pdf}
+        \includegraphics[height=\flogoheight]{\flogo\editionyear.pdf}
     }
     \fancyhead[R]{\today}
 \fi

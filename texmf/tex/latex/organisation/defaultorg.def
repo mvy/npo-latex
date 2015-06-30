@@ -1,25 +1,37 @@
-%% functions
+%% Functions
 \def\upcase{\expandafter\makeupcase}
 \def\makeupcase#1{\uppercase{#1}}
 
-%% variables:
+%% Variables:
+% Organisation
 \def\orgshort{Default}
 \def\orgname{association \orgshort}
+
 \def\orgaddressA{default street}
 \def\orgaddressB{default town}
 \def\orgaddressC{default country}
-\def\orgsinglelineaddress{\orgaddressA{},\orgaddressB{},\orgaddressC{}}
-\def\orgaddress{\orgaddressA{}\\\orgaddressB{}\\\orgaddressC{}}
-\def\orgdashedaddress{\orgaddressA{} --- \orgaddressB{} --- \orgaddressC{}}
-\def\orgpresident{default president}
-\def\orgvicepresident{default vice-president}
 
 \def\orgphone{default-phone}
 \def\orgmail{info@default.org}
 \def\orgwebsite{default.org}
 \def\orgsiret{1234567}
-\def\orglogobase{logoorg}
 
+% Automatic address formatting
+\def\orgsinglelineaddress{\orgaddressA{},\orgaddressB{},\orgaddressC{}}
+\def\orgaddress{\orgaddressA{}\\\orgaddressB{}\\\orgaddressC{}}
+\def\orgdashedaddress{\orgaddressA{} --- \orgaddressB{} --- \orgaddressC{}}
+
+% People
+\def\orgpresident{default president}
+\def\orgvicepresident{default vice-president}
+
+% Logo
+% defines the base name for the logo files none.pdf / 2015.pdf will be appened
+\def\orglogobase{logoorg}
+% defines the logo's height for the headers
+\def\orglogoheight{50px}
+
+% Load colours
 \input{defaultorg-colours.def}
 %End of Package
 \endinput
