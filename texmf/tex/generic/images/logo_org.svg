@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="624.27429"
-   height="235.36554"
+   width="103.42969"
+   height="15.679688"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Nouveau document 1">
+   sodipodi:docname="logo_org.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="232.84016"
-     inkscape:cy="134.10164"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="114.46675"
+     inkscape:cy="-37.831072"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,14 +55,7 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-71.720833,-212.92542)">
-    <rect
-       style="color:#000000;fill:#002b36;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2995"
-       width="624.27429"
-       height="235.36554"
-       x="71.720833"
-       y="212.92542" />
+     transform="translate(-157.53458,-304.52691)">
     <text
        xml:space="preserve"
        style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
@@ -74,26 +67,23 @@
          id="tspan2989"
          x="182.83762"
          y="105.84925" /></text>
-    <rect
-       style="color:#000000;fill:#d33682;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2993"
-       width="170.71577"
-       height="170.71577"
-       x="515.39606"
-       y="265.95078" />
-    <rect
-       style="color:#000000;fill:#b58900;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2991"
-       width="326.62445"
-       height="170.71577"
-       x="88.192947"
-       y="224.31116" />
-    <rect
-       style="color:#000000;fill:#859900;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2985"
-       width="370.72598"
-       height="44.725983"
-       x="215.198"
-       y="373.08276" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+       x="84.852814"
+       y="103.84368"
+       id="text2988"
+       sodipodi:linespacing="125%"
+       transform="translate(71.720833,212.92542)"><tspan
+         sodipodi:role="line"
+         id="tspan2990"
+         x="84.852814"
+         y="103.84368"><tspan
+           style="fill:#073642"
+           id="tspan2992">default</tspan><tspan
+           style="fill:#d33682"
+           id="tspan2994">:</tspan><tspan
+           style="fill:#93a1a1"
+           id="tspan2996">org</tspan></tspan></text>
   </g>
 </svg>
