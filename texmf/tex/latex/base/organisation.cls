@@ -1,6 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
 %% Name of the class
-% TODO: change name of package
 \ProvidesClass{organisation}[2014/07/01 Yves `M'vy` `Stadler, v1.0]
 %% Options
 % noheader allows to mask header
