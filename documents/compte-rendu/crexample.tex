@@ -1,0 +1,59 @@
+\documentclass[a4paper, 12pt, defaultorg]{organisation}
+\usepackage{lipsum}
+
+\title{Compte rendu de la réunion}
+\author{Yves Stadler}
+\date{\today}
+
+%% Begin class
+\makeatletter
+\newcommand{\location}[1]{\def\cr@location{#1}}
+\newcommand{\participants}[1]{\def\cr@people{#1}}
+\newcommand{\subject}[1]{\def\thesubject{#1}\def\cr@subject{#1}}
+\newcommand{\recipient}[1]{\def\cr@recipient{#1}}
+\makeatother
+%% End of class
+
+\participants{Rory Williams, Amelia Pond, River Song, Harriet Jones}
+\location{Grenoble}
+\subject{Réunion hebdomadaire}
+\recipient{Membres de l'association}
+% Optional
+\subtitle{\thesubject}
+
+\begin{document}
+
+\begin{shaded}
+    \scriptsize
+    \makeatletter
+    Transcrit par: \@author{}
+
+    Destinataire: \cr@recipient{}
+
+    Le : \@date
+
+    À : \cr@location
+
+    Membres présents: \cr@people
+
+    Objet de la réunion: \cr@subject
+    \makeatother
+\end{shaded}
+
+\section*{Ordre du jour}
+\begin{itemize}
+    \item point 1
+    \item point 2
+\end{itemize}
+
+\section{Introduction}
+
+Intro
+
+\section{Développement}
+\lipsum
+
+\section{Conclusion}
+Finalwords
+
+\end{document}
