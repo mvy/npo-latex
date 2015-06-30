@@ -32,18 +32,33 @@
 \makeatother
 
 %% Base class option
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}} 
+%% 
+%% Custom loading of def file
+%% If the parameter matches a .def file, loads it at the end.
+\DeclareOption*{
+    \IfFileExists{\CurrentOption.def}{%
+        \expandafter
+        \AtEndOfClass
+        \expandafter{%
+            \expandafter\input\expandafter{\CurrentOption .def}%
+        }%
+    }{
+        % Pass the option to article class
+        \PassOptionsToClass{\CurrentOption}{article} 
+    } 
+}
 \ProcessOptions\relax
+%% End of options
 
 %% Package
 \LoadClass{article}
-% TODO: change name
-\RequirePackage{organisation-common}
 
-\usepackage{organisation-headers}
+\AtEndOfClass{\RequirePackage{organisation-common}}
+\AtEndOfClass{\RequirePackage{organisation-headers}}
 
 %% Loading graphics for logo
 \RequirePackage{graphicx}
+\RequirePackage{xcolor}
 \graphicspath{{images/}}
 
 %% Macros

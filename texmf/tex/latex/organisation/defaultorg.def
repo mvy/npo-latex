@@ -1,26 +1,24 @@
-\ProvidesPackage{organisation-vars}
-%% No options
-\ProcessOptions\relax
-
 %% functions
 \def\upcase{\expandafter\makeupcase}
 \def\makeupcase#1{\uppercase{#1}}
 
 %% variables:
-\def\orgshort{SciNTech}
+\def\orgshort{Default}
 \def\orgname{association \orgshort}
-\def\orgaddressA{24B rue Lucien Andrieux}
-\def\orgaddressB{38100 Grenoble}
-\def\orgaddressC{France}
+\def\orgaddressA{default street}
+\def\orgaddressB{default town}
+\def\orgaddressC{default country}
 \def\orgsinglelineaddress{\orgaddressA{},\orgaddressB{},\orgaddressC{}}
 \def\orgaddress{\orgaddressA{}\\\orgaddressB{}\\\orgaddressC{}}
 \def\orgdashedaddress{\orgaddressA{} --- \orgaddressB{} --- \orgaddressC{}}
-\def\orgpresident{Yves Stadler}
-\def\orgvicepresident{Marin Hannache}
+\def\orgpresident{default president}
+\def\orgvicepresident{default vice-president}
 
-\def\orgphone{0608127739}
-\def\orgmail{info@association.org}
-\def\orgwebsite{association.org}
+\def\orgphone{default-phone}
+\def\orgmail{info@default.org}
+\def\orgwebsite{default.org}
 \def\orgsiret{1234567}
+
+\input{defaultorg-colours.def}
 %End of Package
 \endinput
