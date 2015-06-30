@@ -1,3 +1,30 @@
+# Readme
+
+## How to use
+
+This directory contains a TDS tree (TexMF), a collection of classes, packages
+and common images. So as not to have to copy these ressources, the tree has to
+be registered with the LaTeX distribution.
+
+TeX-Live manager (if available): (source)[1]
+
+    tlmgr conf texmf TEXMFHOME "~/Library/texmf:~/texmf" 
+    
+MikTeX (for windows, Settings (Admin) shortcut - Add to roor)
+
+Debian requires a bit more of work:
+
+    export TEXMFCNF=$HOME/.texmf-config/web2c:
+
+Edit the `$HOME/.texmf-config/web2c/texmf.cnf` file and add to your term
+configuration:
+
+    TEXMFLOCAL = /home/[...]/git/prologin/documents/texmf
+
+Finally, run `texhash` in the `texmf` directory then run `udpmap`.
+
+## TDS tree
+
 texmf/      TDS root
  bibtex/     BibTeX input files
   bib/        BibTeX databases
