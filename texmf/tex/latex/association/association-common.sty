@@ -1,0 +1,19 @@
+%% Default configuration for all Prologin documents types
+\ProvidesPackage{association-common}
+
+%% Inputs / UTF8
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+
+%% Load babel for french
+\RequirePackage[french]{babel}
+
+%% Default font
+\RequirePackage{dejavu}
+\RequirePackage{setspace}
+\onehalfspacing
+
+%% Define the year of the edition
+\newcommand{\edition}[1]{\def\editionyear{#1}}
+\edition{none}
+\endinput

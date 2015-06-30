@@ -1,0 +1,136 @@
+\ProvidesPackage{association-headers
+
+%% Options
+% SIRET number - enabled by siret option
+\newcommand{\siret}{}
+\DeclareOption{siret}{
+    % TODO: Change SIRET
+    \renewcommand{\siret}{ - SIRET 509 021 135 00017}
+}
+
+% noheader sets up @noheader boolean
+\makeatletter
+\newif\if@noheader\@noheaderfalse
+\DeclareOption{noheader}{
+    \@noheadertrue
+}
+
+% nofooter sets up @nofooter boolean
+\newif\if@nofooter\@nofooterfalse
+\DeclareOption{nofooter}{
+    \@nofootertrue
+}
+
+% samehead sets up @samehead boolean
+\newif\if@samehead\@sameheadfalse
+\DeclareOption{samehead}{
+    \@sameheadtrue
+}
+
+% Landscape
+\def\@headheight{37pt}
+\def\@headsep{25pt}
+\DeclareOption{landscape}{
+    \def\@headheight{50pt}
+    \def\@headsep{20pt}
+}
+
+\makeatother
+\ProcessOptions\relax
+
+%% Geometry: 
+% noheader implies no margins
+\makeatletter
+\if@noheader
+    \PassOptionsToPackage{hmargin=2cm,headheight=0pt}{geometry}
+    \renewcommand{\headrulewidth}{0pt}
+\else
+    \PassOptionsToPackage{hmargin=2cm,headheight=\@headheight,headsep=\@headsep}{geometry}
+    \renewcommand{\headrulewidth}{0.5pt}
+\fi
+
+% no footer means no margin
+\if@nofooter
+    \PassOptionsToPackage{footskip=0pt,bottom=0.9in}{geometry}
+    \renewcommand{\footrulewidth}{0pt}
+\else
+    \PassOptionsToPackage{footskip=20pt,bottom=0.9in}{geometry}
+    \renewcommand{\footrulewidth}{0.5pt}
+\fi
+\makeatother
+
+\RequirePackage{geometry}
+
+%% URL for email in the footer
+\RequirePackage{url}
+
+%% Header
+\makeatletter
+\if@nofooter
+    \lfoot{}
+    \cfoot{}
+    \rfoot{}
+\else
+    \makeatother
+    \cfoot{\footnotesize \thelongname{} \siret\\
+    \thelongaddress{}\\
+    % 14 -- 16 rue Voltaire --- 94270 Le Kremlin-Bicêtre --- France\\
+    Tél. : \thephone --- E-mail : \url{\themail} --- \url{\thewebsite}}
+    % Tél. : 01 44 08 01 90 --- E-mail : \url{info@prologin.org} --- \url{http://www.prologin.org}}
+    \rfoot{Page \thepage/\pageref{LastPage}}
+    \lfoot{}
+\fi
+
+%% Footer
+\makeatletter
+\if@noheader
+    \lhead{}
+    \chead{}
+    \rhead{}
+\else
+    \lhead{\includegraphics[width=.3\textwidth]{logo\editionyear.pdf}}
+    \chead{}
+    \rhead{Version du \today\\\textbf{\@title}} 
+\fi
+
+% Pagestyle for first page
+% header
+\fancypagestyle{firstpagestyle}{
+\if@noheader
+    \fancyhead{}
+\else
+    \fancyhf{}
+    \fancyhead[L]{
+        \includegraphics[width=.3\textwidth]{logo\editionyear.pdf}
+    }
+    \fancyhead[R]{\today}
+\fi
+
+% footer
+\if@nofooter
+    \cfoot[]{}
+    \rfoot[]{}
+    \lfoot[]{}
+\else
+    \cfoot{\footnotesize \thelongname{} \siret\\
+    \thelongaddress{}\\
+    Tél. : \thephone --- E-mail : \url{\themail} --- \url{\thewebsite}}
+    % \cfoot{\footnotesize Association Prologin \siret\\
+    % 14 -- 16 rue Voltaire --- 94270 Le Kremlin-Bicêtre --- France\\
+    % Tél. : 01 44 08 01 90 --- E-mail : \url{info@prologin.org} ---
+    % \url{http://www.prologin.org}}
+    \rfoot{Page \thepage/\pageref{LastPage}}
+    \lfoot{}
+\fi
+}
+
+% Sets the default style
+\pagestyle{fancy}
+\makeatletter
+% Sets the first page if no samehead
+\AtBeginDocument{\if@samehead\else\thispagestyle{firstpagestyle}\fi
+{\maketitle}}
+\makeatother
+
+%End of Package
+\endinput
