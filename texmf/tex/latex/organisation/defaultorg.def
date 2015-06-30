@@ -6,6 +6,8 @@
 % Organisation
 \def\orgshort{Default}
 \def\orgname{association \orgshort}
+\def\orgcreatedin{2015}
+\def\orgcreatedthe{21 juin \orgcreatedin}
 
 \def\orgaddressA{default street}
 \def\orgaddressB{default town}
@@ -17,7 +19,7 @@
 \def\orgsiret{1234567}
 
 % Automatic address formatting
-\def\orgsinglelineaddress{\orgaddressA{},\orgaddressB{},\orgaddressC{}}
+\def\orgsinglelineaddress{\orgaddressA{}, \orgaddressB{}, \orgaddressC{}}
 \def\orgaddress{\orgaddressA{}\\\orgaddressB{}\\\orgaddressC{}}
 \def\orgdashedaddress{\orgaddressA{} --- \orgaddressB{} --- \orgaddressC{}}
 

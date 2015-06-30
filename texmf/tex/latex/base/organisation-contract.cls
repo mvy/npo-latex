@@ -1,40 +1,35 @@
 \NeedsTeXFormat{LaTeX2e}
 %% Name of the class
-% TODO: change name of package
-\ProvidesClass{association-contract}[2015/06/08 Yves `M'vy` `Stadler, v1.0]
+\ProvidesClass{organisation-contract}[2015/06/08 Yves `M'vy` `Stadler, v1.0]
 %% Options
 
 %%% Default options
-\PassOptionsToClass{siret}{association}
+\PassOptionsToClass{siret}{organisation}
 %% Base class option
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{association}} 
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{organisation}} 
 \ProcessOptions\relax
 
 %% Package
-% TODO: change name
-\LoadClass{association}
+\LoadClass{organisation}
 \RequirePackage{eurosym}
 \RequirePackage{multicol}
 
 %% Variables
-% Partie A [Prologin]
-\newcommand{\nameA}{\orgname}
-\newcommand{\personA}{\orgpresident}
-\newcommand{\shortA}{\orgshort}
+% Contractor (Organisation)
+\makeatletter
+\def\ORGCTR@partA{\orgname}
+\def\ORGCTR@reprA{\orgpresident}
+\def\ORGCTR@addressA{\orgsinglelineaddress}
+\def\ORGCTR@shortA{\orgshort}
 
-% Partie B
-\newcommand{\nameB}{Crocus Café}
-\newcommand{\addressee}{24 rue Pasteur,\\94270 le Kremlin-Bicêtre}
-\newcommand{\personB}{M. Foutel}
-\newcommand{\shortB}{Crocus Café}
+\newcommand{\atlocation}[1]{\def\ORGCTR@location{#1}}
+\newcommand{\reprA}[1]{\def\ORGCTR@reprA{#1}}
 
-% Liste des dates
-\newcommand{\datedebut}{42 juillet 2024 à 12h00}
-\newcommand{\datefin}{42 août 2024 à 12h00}
-\newcommand{\datelimite}{42 juillet 2024 à 12h00}
-\newcommand{\datedevis}{42 juillet 2024}
-\newcommand{\datepaiement}{42 juillet 2024}
-\newcommand{\somme}{3000}
+% Contractee 
+\newcommand{\partB}[1]{\def\ORGCTR@nameB{#1}}
+\newcommand{\reprB}[1]{\def\ORGCTR@reprB{#1}}
+\newcommand{\addressB}[1]{\def\ORGCTR@addressB{#1}}
+\newcommand{\shortB}[1]{\def\ORGCTR@shortB{#1}}
 
 %% Customisation
 %% Changing section into "Article X"
@@ -51,12 +46,11 @@
 %% Cette partie formate l'introduction du contrat
 Entre
 
-{L'\textbf{Association Prologin}, dont le siège social est situé 14-16 rue
-    Voltaire,
-94270 Le Kremlin-Bicêtre, association loi 1901 immatriculée 509 021 135 00017 au
-Registre du Commerce et des Sociétés, représentée par \personA
+{L'\textbf{\ORGCTR@partA}, dont le siège social est situé \ORGCTR@addressA,
+association loi 1901 immatriculée 509 021 135 00017 au Registre du Commerce
+et des Sociétés, représentée par \ORGCTR@reprA
 
-ci-après dénommée \og \textbf{\shortA} \fg}
+ci-après dénommée \og \textbf{\ORGCTR@shortA} \fg}
 
 \begin{flushright}
 d'une part
@@ -64,11 +58,11 @@ d'une part
 
 et, 
 
-{\textbf{\nameB}\\
-\addressee,\\
-représenté par \personB
+{\textbf{\ORGCTR@nameB}\\
+\ORGCTR@addressB,\\
+représenté par \ORGCTR@reprB
 
-ci-après dénommé \og \textbf{\shortB} \fg}
+ci-après dénommé \og \textbf{\ORGCTR@shortB} \fg}
 
 \begin{flushright}
 d'autre part
@@ -87,20 +81,20 @@ d'autre part
     \setlength{\parindent}{0cm}
     \vspace{1cm}
 
-\textit{Édité en deux exemplaires originaux au Kremlin-Bicêtre le \today.}
+\textit{Édité en deux exemplaires originaux \ORGCTR@location{} le \today.}
 
 \begin{multicols}{2}
-Pour \shortA,\\
-\personA\\
+Pour \ORGCTR@shortA,\\
+\ORGCTR@reprA\\
 Date et signature\vfill\columnbreak
-Pour \shortB,\\
-\personB\\
+Pour \ORGCTR@shortB,\\
+\ORGCTR@reprB\\
 Date et signature
 \end{multicols}
 }
 }
 
-
+\makeatother
 \endinput
 % vim: set ft=tex : 
 
