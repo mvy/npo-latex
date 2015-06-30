@@ -1,0 +1,30 @@
+%% Default configuration for all documents
+\ProvidesPackage{organisation-common}
+
+%% Inputs / UTF8
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+
+%% Load babel for french
+\RequirePackage[french]{babel}
+
+%% Default font
+\RequirePackage{dejavu}
+\RequirePackage{setspace}
+\onehalfspacing
+
+%% Define the year of the edition
+\newcommand{\edition}[1]{\def\editionyear{#1}}
+\edition{none}
+
+%% Defines common environments
+\RequirePackage{framed}
+% TODO: Change package name
+\RequirePackage{organisation-colours}
+\RequirePackage{organisation-vars}
+
+% Environment
+\definecolor{shadecolor}{gray}{.75}
+\newenvironment{encadre}{\begin{shaded}}{\end{shaded}}
+
+\endinput

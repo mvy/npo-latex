@@ -1,0 +1,26 @@
+\ProvidesPackage{organisation-vars}
+%% No options
+\ProcessOptions\relax
+
+%% functions
+\def\upcase{\expandafter\makeupcase}
+\def\makeupcase#1{\uppercase{#1}}
+
+%% variables:
+\def\orgshort{SciNTech}
+\def\orgname{association \orgshort}
+\def\orgaddressA{24B rue Lucien Andrieux}
+\def\orgaddressB{38100 Grenoble}
+\def\orgaddressC{France}
+\def\orgsinglelineaddress{\orgaddressA{},\orgaddressB{},\orgaddressC{}}
+\def\orgaddress{\orgaddressA{}\\\orgaddressB{}\\\orgaddressC{}}
+\def\orgdashedaddress{\orgaddressA{} --- \orgaddressB{} --- \orgaddressC{}}
+\def\orgpresident{Yves Stadler}
+\def\orgvicepresident{Marin Hannache}
+
+\def\orgphone{0608127739}
+\def\orgmail{info@association.org}
+\def\orgwebsite{association.org}
+\def\orgsiret{1234567}
+%End of Package
+\endinput

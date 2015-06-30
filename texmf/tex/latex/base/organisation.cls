@@ -1,25 +1,25 @@
 \NeedsTeXFormat{LaTeX2e}
 %% Name of the class
 % TODO: change name of package
-\ProvidesClass{association}[2014/07/01 Yves `M'vy` `Stadler, v1.0]
+\ProvidesClass{organisation}[2014/07/01 Yves `M'vy` `Stadler, v1.0]
 %% Options
 % noheader allows to mask header
 \DeclareOption{noheader}{
-    \PassOptionsToPackage{\CurrentOption}{association-common}
+    \PassOptionsToPackage{\CurrentOption}{organisation-common}
 }
 
 % nofooter allows to mask footer
 \DeclareOption{nofooter}{
-    \PassOptionsToPackage{\CurrentOption}{association-common}
+    \PassOptionsToPackage{\CurrentOption}{organisation-common}
 }
 
 % samehead disables the front page special headers and footers
 \DeclareOption{samehead}{
-    \PassOptionsToPackage{\CurrentOption}{fancyhdr-std}
+    \PassOptionsToPackage{\CurrentOption}{organisation-headers}
 }
 
 \DeclareOption{landscape}{
-    \PassOptionsToPackage{\CurrentOption}{association-common}
+    \PassOptionsToPackage{\CurrentOption}{organisation-common}
     \PassOptionsToPackage{\CurrentOption}{article}
 }
 
@@ -38,10 +38,9 @@
 %% Package
 \LoadClass{article}
 % TODO: change name
-\RequirePackage{association-common}
-%% Default pagestyle + last page management
-\RequirePackage{fancyhdr,lastpage}
-\usepackage{fancyhdr-std}
+\RequirePackage{organisation-common}
+
+\usepackage{organisation-headers}
 
 %% Loading graphics for logo
 \RequirePackage{graphicx}
