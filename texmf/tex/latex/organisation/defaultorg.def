@@ -31,7 +31,7 @@
 % defines the base name for the logo files none.pdf / 2015.pdf will be appened
 \def\orglogobase{logoorg}
 % defines the logo's height for the headers
-\def\orglogoheight{50px}
+\def\orglogoheight{25px}
 
 % Load colours
 \input{defaultorg-colours.def}

@@ -80,6 +80,7 @@ d'autre part
     {
     \setlength{\parindent}{0cm}
     \vspace{1cm}
+\begin{minipage}[b][5cm]{\linewidth}
 
 \textit{Édité en deux exemplaires originaux \ORGCTR@location{} le \today.}
 
@@ -91,6 +92,7 @@ Pour \ORGCTR@shortB,\\
 \ORGCTR@reprB\\
 Date et signature
 \end{multicols}
+\end{minipage}
 }
 }
 
