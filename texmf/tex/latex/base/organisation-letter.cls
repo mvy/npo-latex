@@ -1,20 +1,28 @@
 \NeedsTeXFormat{LaTeX2e}
-% TODO: change package name
-\ProvidesClass{association-letter}[2014/06/12 Yves Stadler, v1.0]
+\ProvidesClass{organisation-letter}[2014/06/12 Yves Stadler, v1.0]
 
-\newcommand{\lieu}[1]{\def\thelieu{#1}}
+% Default values
+\makeatletter
+\def\ORGLTTR@name{\orgshort{}}
+\def\ORGLTTR@phone{\orgphone{}}
+\def\ORGLTTR@mail{\orgmail{}}
+
+\def\ORGLTTR@title{}
+
+\newcommand{\atlocation}[1]{\def\ORGLTTR@atlocation{#1}}
+
+% Disable if not personal
 \newcommand{\name}[1]{}
-\newcommand{\titre}[1]{}
+\newcommand{\mtitle}[1]{}
 \newcommand{\phone}[1]{}
 \newcommand{\email}[1]{}
-
-\makeatletter
+    
 \newif\if@personal\@personalfalse
 \DeclareOption{personal}{
-    \renewcommand{\name}[1]{\def\thename{#1}}
-    \renewcommand{\titre}[1]{\def\thetitre{#1}}
-    \renewcommand{\phone}[1]{\def\thephone{#1}}
-    \renewcommand{\email}[1]{\def\themail{#1}}
+    \renewcommand{\name}[1]{\def\ORGLTTR@name{#1}}
+    \renewcommand{\mtitle}[1]{\def\ORGLTTR@title{#1}}
+    \renewcommand{\phone}[1]{\def\ORGLTTR@phone{#1}}
+    \renewcommand{\email}[1]{\def\ORGLTTR@mail{#1}}
     \@personaltrue 
 }
 
@@ -24,9 +32,25 @@
 }
 \makeatother
 
-\ProcessOptions\relax
-
 %% Load base class
+%% Base class option
+%% 
+%% Custom loading of def file
+%% If the parameter matches a .def file, loads it at the end.
+\DeclareOption*{
+    \IfFileExists{\CurrentOption.def}{%
+        \expandafter
+        \AtEndOfClass
+        \expandafter{%
+            \expandafter\input\expandafter{\CurrentOption .def}%
+        }%
+    }{
+        % Pass the option to article class
+        \PassOptionsToClass{\CurrentOption}{scrlttr2} 
+    } 
+}
+
+\ProcessOptions\relax
 \LoadClass[NF,version=last]{scrlttr2}
 
 %%
@@ -38,43 +62,35 @@ fromphone,fromemail,fromlogo,subject=left}
 % Sender information
 \makeatletter
 \if@personal
-% TODO: change name
-    \setkomavar{fromname}{\thename{}, Association}
+    \setkomavar{fromname}{\ORGLTTR@name{}, \orgname{}}
 \else
-% TODO: change name, number and email
-    \setkomavar{fromname}{Association }
-    \def\thephone{+33 555 555 555}
-    \def\themail{info@association.org}
+    \setkomavar{fromname}{\upcase{\orgname{}}}
 \fi
 \makeatother
 
 \renewcommand*{\raggedsignature}{\raggedright}
-% TODO: change address
-\setkomavar{fromaddress}{14-16 rue Demotti\\
-38100 Grenoble}
+
+\setkomavar{fromaddress}{\orgaddress}
 \setkomavar{fromlogo}{%
     \adjustbox{valign=B,raise=12mm}{%
-% TODO: change logo
-\includegraphics{logo\editionyear}}}
+\includegraphics[height=\orglogoheight]{\orglogobase\editionyear}}}
 
 % Member information
 \makeatletter
 \if@personal
-% TODO: add name
-\setkomavar{signature}{Pour l'association ,\\%
-    \thetitre\\%
-    \thename{}\\%
+\setkomavar{signature}{Pour l'association,\\%
+    \ORGLTTR@title\\%
+    \ORGLTTR@name{}\\%
     \if@signimg%
     \includegraphics[width=.35\textwidth]{sign.png}%
     \else{}\fi%
 }
 \else
-% TODO: change name
-\setkomavar{signature}{Association}
+\setkomavar{signature}{\upcase{\orgname{}}}
 \fi
 % Set by macro above
-\setkomavar{fromemail}{\themail}
-\setkomavar{fromphone}{\thephone}
+\setkomavar{fromemail}{\ORGLTTR@mail{}}
+\setkomavar{fromphone}{\ORGLTTR@phone{}}
 \makeatother
 
 \makeatletter
@@ -86,10 +102,13 @@ fromphone,fromemail,fromlogo,subject=left}
 %% Specific configuration for letters
 \RequirePackage{graphics}
 \RequirePackage{scrdate}
-\RequirePackage{association-common}
+\RequirePackage{organisation-common}
 
 %% Set the date format at the start of the document
-\AtBeginDocument{\setkomavar{date}{À \thelieu, le \MakeLowercase{\todaysname} \today}}
+\makeatletter
+\def\ORGLTTR@Atlocation{\upcase{\ORGLTTR@atlocation{}}}
+\AtBeginDocument{\setkomavar{date}{\ORGLTTR@Atlocation{}, le \MakeLowercase{\todaysname} \today}}
+\makeatother
 
 \setlength{\parskip}{10pt}
 %% vim: set ft=tex:

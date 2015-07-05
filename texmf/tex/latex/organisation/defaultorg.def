@@ -1,6 +1,8 @@
 %% Functions
-\def\upcase{\expandafter\makeupcase}
+\def\upcase#1{\expandafter\makeupcase#1}
 \def\makeupcase#1{\uppercase{#1}}
+%% Note on upcase, if first letter is UTF-8 (e.g. à) it should be enclosed in
+% curly brackets
 
 %% Variables:
 % Organisation
